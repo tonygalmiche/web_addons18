@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="PlanningChantierRenderer" owl="1">
+        <div class="planning-chantier-view">
+            <h1>Liste des Partenaires</h1>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-if="partners.length === 0">
+                        <tr><td colspan="2" class="text-center">Aucun partenaire trouvé.</td></tr>
+                    </t>
+                    <t t-foreach="partners" t-as="partner" t-key="partner.id">
+                        <tr>
+                            <td><t t-esc="partner.id"/></td>
+                            <td><t t-esc="partner.name"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </t>
+</templates>
