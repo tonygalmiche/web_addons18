@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    
+    <t t-name="simple_table_view.SimpleTableController" owl="1">
+        <Layout display="display" className="className">
+            <t t-component="props.Renderer" 
+               model="model" 
+               archInfo="props.archInfo"
+               onRecordClick.bind="onRecordClick"/>
+        </Layout>
+    </t>
+
+    <t t-name="simple_table_view.SimpleTableRenderer" owl="1">
+        <div class="o_simple_table_view">
+            <div class="table-responsive">
+                <table class="table table-sm table-hover o_simple_table">
+                    <thead>
+                        <tr>
+                            <th class="o_simple_table_header">ID</th>
+                            <th class="o_simple_table_header">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="records" t-as="record" 
+                            t-key="record.id"
+                            class="o_simple_table_row"
+                            t-on-click="() => this.onRowClick(record)"
+                            style="cursor: pointer;">
+                            <td class="o_simple_table_cell">
+                                <t t-esc="record.id"/>
+                            </td>
+                            <td class="o_simple_table_cell">
+                                <t t-esc="record.name"/>
+                            </td>
+                        </tr>
+                        <tr t-if="!records.length">
+                            <td colspan="2" class="text-center text-muted">
+                                No records found
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="simple_table_view.SimpleTableButtons" owl="1">
+        <!-- Boutons supplémentaires si nécessaire -->
+    </t>
+
+</templates>

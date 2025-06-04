@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue minimaliste pour res.partner -->
+    <!-- <record id="view_partner_vue_minimaliste" model="ir.ui.view">
+        <field name="name">res.partner.vue.minimaliste</field>
+        <field name="model">res.partner</field>
+        <field name="type">vue_minimaliste</field>
+        <field name="arch" type="xml">
+            <vue_minimaliste>
+                <field name="id"/>
+                <field name="name"/>
+            </vue_minimaliste>
+        </field>
+    </record> -->
+
+    <!-- Action pour ouvrir la vue minimaliste -->
+    <!-- <record id="action_partner_vue_minimaliste" model="ir.actions.act_window">
+        <field name="name">Partenaires (Vue Minimaliste)</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">vue_minimaliste</field>
+        <field name="view_id" ref="view_partner_vue_minimaliste"/>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record> -->
+
+    <!-- Menu pour accéder à la vue -->
+    <!-- <menuitem id="menu_partner_vue_minimaliste"
+              name="Vue Minimaliste Partenaires"
+              parent="base.menu_partner_category"
+              action="action_partner_vue_minimaliste"
+              sequence="10"/> -->
+</odoo>

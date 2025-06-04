@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="vue_minimaliste.VueMinimaliste" owl="1">
+        <div class="o_vue_minimaliste">
+            <div class="o_vue_minimaliste_header">
+                <h3>Vue Minimaliste</h3>
+                <div class="o_vue_minimaliste_count">
+                    <span t-if="!state.isLoading">
+                        <t t-esc="state.records.length"/> enregistrement(s)
+                    </span>
+                </div>
+            </div>
+            
+            <div t-if="state.isLoading" class="o_vue_minimaliste_loading">
+                <i class="fa fa-spinner fa-spin"/> Chargement...
+            </div>
+            
+            <div t-else="" class="o_vue_minimaliste_content">
+                <table class="o_vue_minimaliste_table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="state.records" t-as="record" 
+                            t-key="record.id"
+                            class="o_vue_minimaliste_row"
+                            t-on-click="() => this.onRecordClick(record.id)">
+                            <td class="o_vue_minimaliste_id">
+                                <t t-esc="record.id"/>
+                            </td>
+                            <td class="o_vue_minimaliste_name">
+                                <t t-esc="record.name"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div t-if="!state.records.length" class="o_vue_minimaliste_empty">
+                    Aucun enregistrement trouvé
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

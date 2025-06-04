@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue Simple Table pour les Partners -->
+    <record id="view_partner_simple_table" model="ir.ui.view">
+        <field name="name">res.partner.simple.table</field>
+        <field name="model">res.partner</field>
+        <field name="type">simple_table</field>
+        <field name="arch" type="xml">
+            <simple_table>
+                <field name="id"/>
+                <field name="name"/>
+            </simple_table>
+        </field>
+    </record>
+
+    <!-- Action pour afficher les partners avec la nouvelle vue -->
+    <record id="action_partner_simple_table" model="ir.actions.act_window">
+        <field name="name">Partners (Simple Table)</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">simple_table,list,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                                      (0, 0, {'view_mode': 'simple_table', 'view_id': ref('view_partner_simple_table')}),
+                                      (0, 0, {'view_mode': 'list'}),
+                                      (0, 0, {'view_mode': 'form'})]"/>
+    </record>
+
+    <!-- Menu pour accéder aux partners -->
+    <menuitem id="menu_partner_simple_table"
+              name="Partners Simple Table"
+              action="action_partner_simple_table"
+              sequence="10"/>
+
+              <!-- parent="base.menu_base_partner" -->
+
+
+            </odoo>
